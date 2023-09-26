@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
+	 viewBox="0 0 495.2 495.2" xml:space="preserve">
+<rect x="360" y="47.6" style="fill:#680B09;" width="80" height="152"/>
+<rect x="352" y="31.6" style="fill:#C43D27;" width="96" height="16"/>
+<g>
+	<rect y="431.6" style="fill:#207700;" width="488" height="32"/>
+	<polygon style="fill:#207700;" points="56,362 72,354 88,362 88,448.4 72,456.4 56,448.4 	"/>
+	<polygon style="fill:#207700;" points="0,362 16,354 32,362 32,448.4 16,456.4 0,448.4 	"/>
+</g>
+<rect x="16" y="391.6" style="fill:#239B02;" width="56" height="16"/>
+<rect x="112" y="223.6" style="fill:#FFFFFF;" width="328" height="224"/>
+<polyline style="fill:#E8F9FC;" points="112,223.6 440,223.6 440,447.6 "/>
+<path style="fill:#FCA12A;" d="M256,431.6V282c0-7.2-2.4-10.4-9.6-10.4H172c-7.2,0-12,4-12,10.4v149.6H256z"/>
+<path style="fill:#E58613;" d="M256,359.6V282c0-7.2-2.4-10.4-9.6-10.4H172c-7.2,0-12,4-12,10.4"/>
+<path style="fill:#DB5435;" d="M246.4,352.4c0,7.2-5.6,13.6-13.6,13.6c-7.2,0-13.6-5.6-13.6-13.6c0-7.2,5.6-13.6,13.6-13.6
+	C240,338.8,246.4,344.4,246.4,352.4z"/>
+<path style="fill:#C43D27;" d="M242.4,342.8c5.6,4.8,4.8,13.6,0,19.2s-13.6,4.8-19.2,0"/>
+<path style="fill:#0E75AF;" d="M344,311.6h48V282c0-7.2-8-10.4-15.2-10.4H344V311.6z"/>
+<path style="fill:#1EA4C4;" d="M336,311.6v-40h-36c-7.2,0-12,4-12,10.4v29.6H336z"/>
+<path style="fill:#0E75AF;" d="M336,319.6h-48v31.2c0,7.2,4.8,8.8,12,8.8h36V319.6z"/>
+<path style="fill:#1EA4C4;" d="M344,319.6v40h32.8c7.2,0,15.2-1.6,15.2-8.8v-31.2H344z"/>
+<polygon style="fill:#C43D27;" points="495.2,223.6 276,52.4 57.6,223.6 "/>
+<polygon style="fill:#AA1E0F;" points="495.2,223.6 276,52.4 164.8,223.6 "/>
+<g>
+	<polygon style="fill:#C43D27;" points="119.2,175.6 433.6,175.6 413.6,159.6 139.2,159.6 	"/>
+	<polygon style="fill:#C43D27;" points="190.4,119.6 362.4,119.6 352,111.6 200.8,111.6 	"/>
+</g>
+</svg>
