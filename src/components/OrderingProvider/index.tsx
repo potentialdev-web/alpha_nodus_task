@@ -40,7 +40,7 @@ export interface OrderingProviderProps {
   /**
    * The callback for updating order infomation
    */
-  updateOrder: Function;
+  updateOrder: (updatedOrder: Order) => void;
 }
 
 const InfoProperty = ({ label, content, img }: InfoPropertyProps) => (
@@ -156,7 +156,7 @@ export const OrderingProvider = ({
                       img={Icons["npi"]}
                     />
 
-                    {order.telecom.map((item, index) => (
+                    {order.telecom!.map((item, index) => (
                       <InfoProperty
                         key={index}
                         label={toCapitalCase(item.system)}

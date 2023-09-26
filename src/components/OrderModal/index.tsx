@@ -11,7 +11,7 @@ export interface OrderModalProps {
   onHide: () => void;
   title: string;
   order: Order | null;
-  updateOrder: Function;
+  updateOrder: (updatedOrder: Order) => void;
 }
 
 export const OrderModal = ({
@@ -62,7 +62,7 @@ export const OrderModal = ({
   };
 
   const handleSubmit = () => {
-    const updatedOrder = {
+    const updatedOrder: Order = {
       ...order,
       firstName,
       lastName,

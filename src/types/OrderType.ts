@@ -13,14 +13,14 @@ export type Metadata = {
 export type Order = {
   firstName: string;
   lastName: string;
-  id: string;
-  npi: string | null;
-  doNotContact: boolean | null;
-  address: string | null;
-  specialty: string | null;
-  isPriorAuthSubmissionEnabled: boolean | null;
-  tag: string | null;
-  updatedAt: number | null;
-  telecom: Telecom[];
-  metadata: Metadata;
+  id?: string;
+  npi?: string | null;
+  doNotContact?: boolean | null;
+  address?: string | null;
+  specialty?: string | null;
+  isPriorAuthSubmissionEnabled?: boolean | null;
+  tag?: string | null;
+  updatedAt?: number | null;
+  telecom?: Telecom[];
+  metadata?: Metadata;
 };
