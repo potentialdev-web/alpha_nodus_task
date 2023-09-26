@@ -1,77 +1,134 @@
-import React, { useState } from "react";
+import React, { useState, ChangeEvent } from "react";
 import { Modal, Button, InputGroup, Form } from "react-bootstrap";
+import styled from "styled-components";
+import { FaMinus, FaPlus } from "react-icons/fa";
 import { Order, Telecom } from "types/OrderType";
 import { toCapitalCase } from "utils";
 
 export interface OrderModalProps {
   /**
-   * Whether shows modal or not
+   * Whether to show the modal or not
    */
   show: boolean;
+
+  /**
+   * Function to handle hiding the modal
+   */
   onHide: () => void;
+
+  /**
+   * The title of the modal
+   */
   title: string;
+
+  /**
+   * The order object
+   */
   order: Order | null;
+
+  /**
+   * Function to update the order
+   */
   updateOrder: (updatedOrder: Order) => void;
 }
 
 export const OrderModal = ({
-  show,
+  show = false,
   onHide,
   title,
   order,
   updateOrder,
 }: OrderModalProps) => {
-  const [firstName, setFirstName] = useState(order ? order.firstName : "");
-  const [lastName, setLastName] = useState(order ? order.lastName : "");
-  const [npi, setNPI] = useState(order ? order.npi ?? "" : "");
-  const [address, setAddress] = useState(order ? order.address ?? "" : "");
-  const [telecom, setTelecom] = useState<Telecom[]>(
-    order ? order.telecom ?? [] : []
-  );
+  const [formData, setFormData] = useState({
+    firstName: order?.firstName || "",
+    lastName: order?.lastName || "",
+    npi: order?.npi || "",
+    address: order?.address || "",
+    telecom: order?.telecom || [],
+  });
+
+  const handleInputChange =
+    (name: string) =>
+    (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+      setFormData({ ...formData, [name]: event.target.value });
+    };
 
   const handleTelecomChange = (
     index: number,
     field: keyof Telecom,
     value: string
   ) => {
-    if (telecom) {
-      const updatedTelecom: Telecom[] = [...telecom];
-      updatedTelecom[index] = {
-        ...updatedTelecom[index],
-        [field]: value,
-      };
-      setTelecom(updatedTelecom);
-    }
-  };
-
-  const renderTelecomFields = () => {
-    return telecom.map((telecomItem, index) => (
-      <div key={index}>
-        <InputGroup className="mb-3">
-          <InputGroup.Text>{toCapitalCase(telecomItem.system)}</InputGroup.Text>
-          <Form.Control
-            type="text"
-            value={telecomItem.value}
-            onChange={(e) =>
-              handleTelecomChange(index, "value", e.target.value)
-            }
-          />
-        </InputGroup>
-      </div>
-    ));
+    setFormData({
+      ...formData,
+      telecom: formData.telecom.map((t, ind) =>
+        ind === index ? { ...t, [field]: value } : t
+      ),
+    });
   };
 
   const handleSubmit = () => {
     const updatedOrder: Order = {
       ...order,
-      firstName,
-      lastName,
-      npi,
-      address,
-      telecom,
+      ...formData,
+      telecom: formData.telecom.map((t, index) => ({ ...t, rank: index + 1 })),
     };
+    console.log(updatedOrder);
     onHide();
     updateOrder(updatedOrder);
+  };
+
+  const handleAddTelecomField = () => {
+    setFormData({
+      ...formData,
+      telecom: [
+        ...formData.telecom,
+        { system: "", value: "", use: "", rank: 0 },
+      ],
+    });
+  };
+
+  const handleRemoveTelecomField = (index: number) => {
+    const updatedTelecom = [...formData.telecom];
+    updatedTelecom.splice(index, 1);
+    setFormData({ ...formData, telecom: updatedTelecom });
+  };
+
+  const renderTelecomFields = () => {
+    return formData.telecom.map((telecomItem, index) => (
+      <div key={index}>
+        <InputGroup className="mb-3">
+          <Form.Control
+            type="text"
+            value={toCapitalCase(telecomItem.system)}
+            placeholder="Type"
+            onChange={(e) =>
+              handleTelecomChange(index, "system", e.target.value)
+            }
+          />
+          <Form.Control
+            type="text"
+            value={telecomItem.value}
+            placeholder="Number"
+            onChange={(e) =>
+              handleTelecomChange(index, "value", e.target.value)
+            }
+          />
+          <Form.Control
+            type="text"
+            value={telecomItem.use || ""}
+            placeholder="Use"
+            onChange={(e) => handleTelecomChange(index, "use", e.target.value)}
+          />
+          <Button
+            variant="primary"
+            size="sm"
+            onClick={() => handleRemoveTelecomField(index)}
+          >
+            <FaMinus />
+          </Button>
+        </InputGroup>
+      </div>
+    ));
   };
 
   return (
@@ -89,30 +146,47 @@ export const OrderModal = ({
           <InputGroup.Text>First and last name</InputGroup.Text>
           <Form.Control
             aria-label="First name"
-            value={firstName}
-            onChange={(e) => setFirstName(e.target.value)}
+            value={formData.firstName}
+            placeholder="First Name"
+            onChange={handleInputChange("firstName")}
           />
           <Form.Control
             aria-label="Last name"
-            value={lastName}
-            onChange={(e) => setLastName(e.target.value)}
+            value={formData.lastName}
+            placeholder="Last Name"
+            onChange={handleInputChange("lastName")}
           />
         </InputGroup>
         <InputGroup className="mb-3">
           <InputGroup.Text>NPI</InputGroup.Text>
           <Form.Control
             aria-label="npi"
-            value={npi}
-            onChange={(e) => setNPI(e.target.value)}
+            value={formData.npi}
+            placeholder="NPI"
+            onChange={handleInputChange("npi")}
           />
         </InputGroup>
+
+        <Form.Label htmlFor="inputPassword5">Telecoms</Form.Label>
         {renderTelecomFields()}
+        <div className="text-end">
+          <Button
+            variant="primary"
+            className="mb-3"
+            size="sm"
+            onClick={handleAddTelecomField}
+          >
+            <FaPlus /> Add Telecom
+          </Button>
+        </div>
+
         <InputGroup className="mb-3">
           <InputGroup.Text>Address</InputGroup.Text>
           <Form.Control
             aria-label="address"
-            value={address}
-            onChange={(e) => setAddress(e.target.value)}
+            value={formData.address}
+            placeholder="Address"
+            onChange={handleInputChange("address")}
           />
         </InputGroup>
       </Modal.Body>
@@ -122,3 +196,5 @@ export const OrderModal = ({
     </Modal>
   );
 };
+
+const ButtonWrapper = styled.div``;

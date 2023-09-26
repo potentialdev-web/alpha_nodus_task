@@ -13,15 +13,15 @@ export const sampleOrder: Order = {
   updatedAt: 1635361234,
   telecom: [
     {
-      system: "fax",
+      system: "Fax",
       value: "(947)-761-6984",
-      use: "work",
+      use: "Work",
       rank: 1,
     },
     {
-      system: "phone",
+      system: "Phone",
       value: "(977)-973-4171",
-      use: "home",
+      use: "Home",
       rank: 2,
     },
   ],

@@ -5,7 +5,7 @@ import SVG_ADDRESS from "assets/img/icons/address.svg";
 
 export const Icons: { [key: string]: any } = {};
 
-Icons["npi"] = SVG_NPI;
-Icons["fax"] = SVG_FAX;
-Icons["phone"] = SVG_PHONE;
-Icons["address"] = SVG_ADDRESS;
+Icons["NPI"] = SVG_NPI;
+Icons["Fax"] = SVG_FAX;
+Icons["Phone"] = SVG_PHONE;
+Icons["Address"] = SVG_ADDRESS;

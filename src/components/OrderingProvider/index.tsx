@@ -153,7 +153,7 @@ export const OrderingProvider = ({
                     <InfoProperty
                       label="NPI"
                       content={order.npi}
-                      img={Icons["npi"]}
+                      img={Icons["NPI"]}
                     />
 
                     {order.telecom!.map((item, index) => (
@@ -175,7 +175,7 @@ export const OrderingProvider = ({
                     <InfoProperty
                       label="Address"
                       content={order.address}
-                      img={Icons["address"]}
+                      img={Icons["Address"]}
                     />
                   </InfoBody>
                 </>
