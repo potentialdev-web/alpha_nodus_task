@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
 import { OrderModal, OrderModalProps } from "components";
-import { sampleOrder } from "consts/data";
+import { sampleOrder } from "consts";
 
 const meta = {
   title: "Components/OrderModal",

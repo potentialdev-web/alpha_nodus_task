@@ -1,7 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
 import { SimpleAlert, SimpleAlertProps } from "components";
-import { sampleOrder } from "consts/data";
 
 const meta = {
   title: "Components/SimpleAlert",

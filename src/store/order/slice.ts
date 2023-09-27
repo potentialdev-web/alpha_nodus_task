@@ -1,7 +1,7 @@
 import { createSlice, createSelector, PayloadAction } from "@reduxjs/toolkit";
 import { NAME, OrderPayloadType, OrderStateType } from "./types";
 import { RootStateType } from "store/types";
-import { Order } from "types/OrderType";
+import { Order } from "types";
 
 const initialState: OrderStateType = {
   order: {

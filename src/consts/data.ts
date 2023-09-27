@@ -1,4 +1,4 @@
-import { Order } from "types/OrderType";
+import { Order } from "types";
 
 export const sampleOrder: Order = {
   firstName: "Kailynn",

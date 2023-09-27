@@ -9,7 +9,7 @@ import {
 } from "store/order/slice";
 import { OrderPayloadType } from "./types";
 import { fetchOrder, updateOrder } from "store/api";
-import { Order } from "types/OrderType";
+import { Order } from "types";
 
 // Fetch a specific order information
 function* getOrderSaga() {

@@ -2,7 +2,7 @@ import React, { useState, ChangeEvent } from "react";
 import { Modal, Button, InputGroup, Form } from "react-bootstrap";
 import styled from "styled-components";
 import { FaMinus, FaPlus } from "react-icons/fa";
-import { Order, Telecom } from "types/OrderType";
+import { Order, Telecom } from "types";
 import { toCapitalCase } from "utils";
 
 export interface OrderModalProps {

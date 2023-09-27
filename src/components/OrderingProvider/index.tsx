@@ -6,9 +6,9 @@ import { AiOutlineCopy } from "react-icons/ai";
 import { MdWifiCalling } from "react-icons/md";
 
 import { SimpleSpinner, SimpleAlert, OrderModal } from "components";
-import { Icons } from "consts/Icons";
+import { Icons } from "consts";
 
-import { Order } from "types/OrderType";
+import { Order } from "types";
 
 import { toCapitalCase } from "utils";
 

@@ -1,6 +1,6 @@
-import { Order } from "types/OrderType";
+import { Order } from "types";
 import { OrderPayloadType } from "./order/types";
-import { sampleOrder } from "consts/data";
+import { sampleOrder } from "consts";
 
 // mock data as if it came from api
 export const mockOrder: OrderPayloadType = {

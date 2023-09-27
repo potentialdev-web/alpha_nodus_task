@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { OrderingProvider } from "components";
 
 import { getOrder, getOrderAction, updateOrderAction } from "store/order/slice";
-import { Order } from "types/OrderType";
+import { Order } from "types";
 
 export const OrderingProviderContainer = () => {
   const dispatch = useDispatch();

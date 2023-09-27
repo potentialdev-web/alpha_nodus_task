@@ -1,4 +1,4 @@
-import { Order } from "types/OrderType";
+import { Order } from "types";
 
 export type IOrderState = {
   data: Order | null;
@@ -15,4 +15,4 @@ export type OrderPayloadType = {
 };
 
 export const NAME = "order";
-export type NAME = typeof NAME;
+export type NAME_TYPE = typeof NAME;
